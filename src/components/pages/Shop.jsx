@@ -1,11 +1,14 @@
-import React from 'react'
+import React from "react";
+import Container from "../Container";
 
 const Shop = () => {
   return (
     <>
-      <h1>Shop</h1>
+      <Container>
+        <h1>Shop</h1>
+      </Container>
     </>
-  )
-}
+  );
+};
 
-export default Shop
+export default Shop;

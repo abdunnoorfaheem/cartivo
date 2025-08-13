@@ -1,11 +1,14 @@
-import React from 'react'
+import React from "react";
+import Container from "../Container";
 
 const About = () => {
   return (
     <>
-      <h1>about</h1>
+      <Container>
+        <h1>about</h1>
+      </Container>
     </>
-  )
-}
+  );
+};
 
-export default About
+export default About;
