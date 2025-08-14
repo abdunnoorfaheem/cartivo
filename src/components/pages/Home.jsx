@@ -6,9 +6,9 @@ const Home = () => {
   return (
     <>
     
-      <Container>
+      
         <Banner/>
-      </Container>
+     
     </>
   );
 };

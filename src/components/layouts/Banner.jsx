@@ -5,55 +5,43 @@ import Container from "../Container";
 import Heading from "../Heading";
 import Flex from "../Flex";
 import Button from "../Button";
-import { MdOutlineSignalCellularAlt2Bar } from "react-icons/md";
-import { LuUserRoundCog } from "react-icons/lu";
-import { FaShoppingCart } from "react-icons/fa";
+import { FaBarsStaggered } from "react-icons/fa6";
+import { FaSearch,FaUser,FaCaretDown,FaShoppingCart   } from "react-icons/fa";
+
 
 const Banner = () => {
   return (
     <>
-      <div className="">
-        
-         <div className="py-[50px]">
+      
+         <div className="bg-[#F5F5F3] py-[30px]">
           <Container>
-             <Flex className={"justify-between "}>
-            <div className="">
-              <div className="flex items-center">
-                <MdOutlineSignalCellularAlt2Bar className={"text-[20px] rotate-90"} />
-                <Heading text={"Shop by Category"} tagName={"h5"} className={"text-[#262626] text-[14px]"}/>
+            <Flex className={"justify-between"}>
+              <div className="flex items-center gap-x-2 text-[14px]">
+                <FaBarsStaggered />
+                <Heading text={"Shop by Category"} tagName={"h4"} className={"text-[#262626]"}/>
               </div>
-            </div>
-            <div className="">
-              <input type="text" placeholder="Search Products" className="border bg-[#F5F5F3] py-[16px] pl-[21px] pr-[421px] border-none"/>
-            </div>
-            <div className=" ">
-              <div className="flex gap-x-12 text-[24px]">
-                <LuUserRoundCog />
+              <div className="relative">
+                <input type="text" placeholder="Search Products" className="bg-white py-[16px] pl-[21px] w-[600px] outline-0 placeholder:text-[#C4C4C4]" />
+                <FaSearch className="absolute right-3 top-[50%] -translate-[50%]"/>
+              </div>
+              <div className="flex items-center gap-x-3">
+                <div className="flex">
+                  <FaUser />
+                <FaCaretDown />
+                </div>
                 <FaShoppingCart />
               </div>
-            </div>
-          </Flex>
-           <Flex>
-            <div className="w-[50%]">
-              <Heading
-                text={"Final Offer"}
-                tagName={"h3"}
-                className={"text-[49px] font-bold text-[#262626]"}
-              />
-              <p className="mt-[33px] mb-[39px] text-[#6D6D6D]">Up to <span className={'text-[40px] font-bold text-[#000000]'}>50%</span> sale for all furniture items!</p>
+            </Flex>
               
-              <Button className={"text-[#ffffff] bg-[#262626]"}>Shop Now</Button>
-            </div>
-            <div className="w-[50%]">
-              <Image className={"w-full h-[500px]"} imgSrc={BannerImg} />
-            </div>
-          </Flex>
           </Container>
+         </div>
+         <div className="bg-[url('/src/assets/banner.png')] h-[600px] bg-no-repeat bg-center bg-cover">
+          
           
          </div>
          
         
-      </div>
+      
     </>
   );
 };
