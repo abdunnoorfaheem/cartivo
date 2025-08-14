@@ -12,23 +12,25 @@ const Header = () => {
       <div className="py-[40px]">
         <Container>
           <Flex className={"justify-between"}>
-            <Image imgSrc={Logo} />
-            <div className="mr-[250px]">
-              <ul className="flex gap-x-12">
+            <div className="w-[40%]">
+              <Image imgSrc={Logo} />
+            </div>
+            <div className="w-[60%]">
+              <ul className="flex gap-x-12 text-[#767676]">
               <Link to={"/"}>
-                <li>Home</li>
+                <li className="hover:text-[#262626] hover:font-bold duration-500">Home</li>
               </Link>
               <Link to={"/shop"}>
-                <li>Shop</li>
+                <li className="hover:text-[#262626] hover:font-bold duration-500">Shop</li>
               </Link>
               <Link to={"/about"}>
-                <li>About</li>
+                <li className="hover:text-[#262626] hover:font-bold duration-500">About</li>
               </Link>
-              <li><Link to={"/contact"}>Contacts</Link></li>
-            <li><Link to={"/journal"}>Journal</Link></li>
+              <li className="hover:text-[#262626] hover:font-bold duration-500"><Link to={"/contact"}>Contacts</Link></li>
+            <li className="hover:text-[#262626] hover:font-bold duration-500"><Link to={"/journal"}>Journal</Link></li>
             </ul>
             </div>
-            {/* <Button>Shop Now</Button> */}
+            
           </Flex>
         </Container>
       </div>

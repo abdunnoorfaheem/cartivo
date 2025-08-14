@@ -12,21 +12,21 @@ import { FaShoppingCart } from "react-icons/fa";
 const Banner = () => {
   return (
     <>
-      <div className=" w-full">
+      <div className="">
         
          <div className="py-[50px]">
           <Container>
              <Flex className={"justify-between "}>
-            <div className="w-[20%] ">
+            <div className="">
               <div className="flex items-center">
                 <MdOutlineSignalCellularAlt2Bar className={"text-[20px] rotate-90"} />
                 <Heading text={"Shop by Category"} tagName={"h5"} className={"text-[#262626] text-[14px]"}/>
               </div>
             </div>
-            <div className="w-[60%] ml-[50px]">
+            <div className="">
               <input type="text" placeholder="Search Products" className="border bg-[#F5F5F3] py-[16px] pl-[21px] pr-[421px] border-none"/>
             </div>
-            <div className="w-[20%] ">
+            <div className=" ">
               <div className="flex gap-x-12 text-[24px]">
                 <LuUserRoundCog />
                 <FaShoppingCart />
