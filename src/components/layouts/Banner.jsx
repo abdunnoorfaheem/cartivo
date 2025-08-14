@@ -7,6 +7,7 @@ import Flex from "../Flex";
 import Button from "../Button";
 import { FaBarsStaggered } from "react-icons/fa6";
 import { FaSearch,FaUser,FaCaretDown,FaShoppingCart   } from "react-icons/fa";
+import {Link} from "react-router-dom";
 
 
 const Banner = () => {
@@ -35,10 +36,13 @@ const Banner = () => {
               
           </Container>
          </div>
+         <Link to={"/shop"}>
          <div className="bg-[url('/src/assets/banner.png')] h-[600px] bg-no-repeat bg-center bg-cover">
           
           
          </div>
+         </Link>
+         
          
         
       
