@@ -74,6 +74,12 @@ const Footer = () => {
             </div>
           </Flex>
         </div>
+        <div className="">
+          <Flex className={"justify-between"}>
+            <div className="">1</div>
+            <div className="">2</div>
+          </Flex>
+        </div>
       </Container>
       </div>
     </>
