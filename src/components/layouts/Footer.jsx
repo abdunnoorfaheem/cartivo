@@ -5,6 +5,8 @@ import {Link} from "react-router-dom";
 import Heading from "../Heading";
 import Image from "../Image";
 import Logo from "/src/assets/logo.png";
+import { FaFacebookF,FaLinkedinIn,FaInstagram  } from "react-icons/fa";
+
 
 const Footer = () => {
   return (
@@ -74,10 +76,16 @@ const Footer = () => {
             </div>
           </Flex>
         </div>
-        <div className="">
+        <div className="py-[25px]">
           <Flex className={"justify-between"}>
-            <div className="">1</div>
-            <div className="">2</div>
+            <div className="flex items-center gap-x-3">
+              <FaFacebookF/>
+              <FaLinkedinIn/>
+              <FaInstagram/>
+            </div>
+            <div className="">
+              <Heading text={"2020 Orebi Minimal eCommerce Figma Template by Adveits"} tagName={"p"} className={"text-[#6D6D6D] text-[14px]"}/>
+            </div>
           </Flex>
         </div>
       </Container>
