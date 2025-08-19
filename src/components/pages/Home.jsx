@@ -9,14 +9,11 @@ import NewArrival from "../layouts/NewArrival";
 const Home = () => {
   return (
     <>
-    
-      
-        <Banner/>
-        <Policy/>
-        <Offer/>
-        <NewArrival/>
-        <BestProduct/>
-        
+      <Banner />
+      <Policy />
+      <Offer />
+      <NewArrival />
+      <BestProduct />
     </>
   );
 };
