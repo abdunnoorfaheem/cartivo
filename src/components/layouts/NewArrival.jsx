@@ -3,10 +3,10 @@ import Heading from "../Heading";
 import Container from "../Container";
 import Flex from "../Flex";
 import Product from "../Product";
-import ProductOne from "../../assets/productOne.png";
-import ProductTwo from "../../assets/productTwo.png";
-import ProductThree from "../../assets/productThree.png";
-import ProductFour from "../../assets/productFour.png";
+import ProductOne from "/src/assets/productOne.png";
+import ProductTwo from "/src/assets/productTwo.png";
+import ProductThree from "/src/assets/productThree.png";
+import ProductFour from "/src/assets/productFour.png";
 
 
 const NewArrival = () => {
