@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "./Image";
-import ProductOne from "/src/assets/productOne.png";
+
 import Badge from "./Badge";
 import Flex from "./Flex";
 import Heading from "./Heading";
@@ -11,6 +11,7 @@ const Product = ({ productImg, bdgText }) => {
       <div className="relative">
         <Badge className={"absolute top-5 left-5"} badgeText={bdgText} />
         <Image imgSrc={productImg} />
+        <div className="py-4 bg-amber-300"></div>
         <div className="py-2">
           <Flex className={"justify-between"}>
             <Heading
@@ -25,6 +26,7 @@ const Product = ({ productImg, bdgText }) => {
             />
           </Flex>
         </div>
+        
       </div>
     </>
   );
