@@ -17,16 +17,16 @@ const SpecialOffer = () => {
         />
         <div className="flex flex-wrap gap-4 justify-between">
           <div className="w-[48%] md:w-[32%] lg:w-[24%]">
-            <Product productTitle={"Basic Crew Neck Tee"} productImg={SpecialImg} bdgText={"15%"} />
+            <Product productTitle={"Basic Crew Neck Tee"} productImg={SpecialImg} bdgText={"15%"}  productPrice={"$250"}/>
           </div>
           <div className="w-[48%] md:w-[32%] lg:w-[24%]">
-            <Product productTitle={"Basic Crew Neck Tee"} productImg={SpecialImg} bdgText={"15%"} />
+            <Product productTitle={"Basic Crew Neck Tee"} productImg={SpecialImg} bdgText={"15%"}  productPrice={"$50"}/>
           </div>
           <div className="w-[48%] md:w-[32%] lg:w-[24%]">
-            <Product productTitle={"Basic Crew Neck Tee"} productImg={SpecialImgTwo} bdgText={"15%"} />
+            <Product productTitle={"Basic Crew Neck Tee"} productImg={SpecialImgTwo} bdgText={"15%"}  productPrice={"$30"}/>
           </div>
           <div className="w-[48%] md:w-[32%] lg:w-[24%]">
-            <Product productTitle={"Basic Crew Neck Tee"} productImg={SpecialImgTwo} bdgText={"15%"} />
+            <Product productTitle={"Basic Crew Neck Tee"} productImg={SpecialImgTwo} bdgText={"15%"}  productPrice={"$10"}/>
           </div>
         </div>
       </Container>

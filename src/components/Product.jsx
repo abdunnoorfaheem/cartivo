@@ -8,7 +8,7 @@ import { FaHeart,FaShoppingCart } from "react-icons/fa";
 import { TbRefresh } from "react-icons/tb";
 
 
-const Product = ({ productImg, bdgText,productTitle }) => {
+const Product = ({ productImg, bdgText,productTitle,productPrice }) => {
   return (
     <>
       <div className="relative group">
@@ -36,7 +36,7 @@ const Product = ({ productImg, bdgText,productTitle }) => {
               className={"text-[20px] font-bold text-[#262626]"}
             />
             <Heading
-              text={"$44.00"}
+              text={productPrice}
               tagName={"h6"}
               className={"text-[16px] font-normal text-[#767676]"}
             />

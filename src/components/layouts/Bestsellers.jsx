@@ -15,16 +15,16 @@ const Bestsellers = () => {
         />
         <div className="flex flex-wrap gap-4 justify-between">
           <div className="w-[48%] md:w-[32%] lg:w-[24%]">
-            <Product productTitle={"Basic Crew Neck Tee"} productImg={ProductImgFour} bdgText={"15%"} />
+            <Product productTitle={"Basic Crew Neck Tee"} productImg={ProductImgFour} bdgText={"15%"}  productPrice={"$50"} />
           </div>
           <div className="w-[48%] md:w-[32%] lg:w-[24%]">
-            <Product productTitle={"Basic Crew Neck Tee"} productImg={ProductImgFour} bdgText={"15%"} />
+            <Product productTitle={"Basic Crew Neck Tee"} productImg={ProductImgFour} bdgText={"15%"}  productPrice={"$20"}/>
           </div>
           <div className="w-[48%] md:w-[32%] lg:w-[24%]">
-            <Product productTitle={"Basic Crew Neck Tee"} productImg={ProductImgFour} bdgText={"15%"} />
+            <Product productTitle={"Basic Crew Neck Tee"} productImg={ProductImgFour} bdgText={"15%"} productPrice={"$40"} />
           </div>
           <div className="w-[48%] md:w-[32%] lg:w-[24%]">
-            <Product productTitle={"Basic Crew Neck Tee"} productImg={ProductImgFour} bdgText={"15%"} />
+            <Product productTitle={"Basic Crew Neck Tee"} productImg={ProductImgFour} bdgText={"15%"}  productPrice={"$80"}/>
           </div>
         </div>
       </Container>
