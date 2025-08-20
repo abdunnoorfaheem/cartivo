@@ -8,7 +8,7 @@ import { FaHeart,FaShoppingCart } from "react-icons/fa";
 import { TbRefresh } from "react-icons/tb";
 
 
-const Product = ({ productImg, bdgText }) => {
+const Product = ({ productImg, bdgText,productTitle }) => {
   return (
     <>
       <div className="relative group">
@@ -31,7 +31,7 @@ const Product = ({ productImg, bdgText }) => {
         <div className="py-2">
           <Flex className={"justify-between"}>
             <Heading
-              text={"Basic Crew Neck Tee"}
+              text={productTitle}
               tagName={"h5"}
               className={"text-[20px] font-bold text-[#262626]"}
             />

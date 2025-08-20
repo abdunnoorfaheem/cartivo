@@ -13,6 +13,7 @@ import "slick-carousel/slick/slick-theme.css";
 import NextArrow from "../NextArrow";
 import PrevArrow from "../PrevArrow";
 
+
 const NewArrival = () => {
   var settings = {
     dots: false,
@@ -58,24 +59,24 @@ const NewArrival = () => {
           tagName={"h3"}
           className={"text-[39px] font-bold text-[#262626]"}
         />
-        <Slider {...settings}>
+        <Slider {...settings} className="-mx-2">
           <div className="px-2">
-            <Product productImg={ProductOne} bdgText={"New"} />
+            <Product productTitle={"Basic Crew Neck Tee"} productImg={ProductOne} bdgText={"New"} />
           </div>
           <div className="px-2">
-            <Product productImg={ProductTwo} bdgText={"20%"} />
+            <Product productTitle={"Basic Crew Neck Tee"} productImg={ProductTwo} bdgText={"20%"} />
           </div>
           <div className="px-2">
-            <Product productImg={ProductThree} bdgText={"New"} />
+            <Product productTitle={"Basic Crew Neck Tee"} productImg={ProductThree} bdgText={"New"} />
           </div>
           <div className="px-2">
-            <Product productImg={ProductThree} bdgText={"30%"} />
+            <Product productTitle={"Basic Crew Neck Tee"} productImg={ProductThree} bdgText={"30%"} />
           </div>
           <div className="px-2">
-            <Product productImg={ProductThree} bdgText={"30%"} />
+            <Product productTitle={"Basic Crew Neck Tee"} productImg={ProductThree} bdgText={"30%"} />
           </div>
           <div className="px-2">
-            <Product productImg={ProductThree} bdgText={"30%"} />
+            <Product productTitle={"Basic Crew Neck Tee"} productImg={ProductThree} bdgText={"30%"} />
           </div>
         </Slider>
       </Container>

@@ -6,6 +6,7 @@ import Offer from "../layouts/Offer";
 import BestProduct from "../layouts/BestProduct";
 import NewArrival from "../layouts/NewArrival";
 import Bestsellers from "../layouts/Bestsellers";
+import SpecialOffer from "../layouts/SpecialOffer";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <NewArrival />
       <Bestsellers/>
       <BestProduct />
+      <SpecialOffer/>
     </>
   );
 };
