@@ -24,7 +24,8 @@ const Journal = () => {
   
   return (
     <>
-      <Container>
+     <div className="py-[50px]">
+       <Container>
         <div className="flex flex-wrap gap-x-3 gap-y-4 ">
           {
             allData.map((item)=>(
@@ -40,6 +41,7 @@ const Journal = () => {
           }
         </div>
       </Container>
+     </div>
     </>
   )
 }

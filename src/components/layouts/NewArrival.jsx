@@ -12,9 +12,25 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import NextArrow from "../NextArrow";
 import PrevArrow from "../PrevArrow";
+import {useState,useEffect} from "react";
+import axios from "axios";
 
 
 const NewArrival = () => {
+  let[allData,setAllData]=useState([]);
+ 
+  useEffect(() => {
+    
+    async function viewData(){
+          
+      let data = await axios.get("https://dummyjson.com/products");
+      setAllData(data.data.products);
+      
+     }
+     viewData();
+  }, []);
+  
+
   var settings = {
     dots: false,
     infinite: true,
@@ -66,26 +82,24 @@ const NewArrival = () => {
           tagName={"h3"}
           className={"text-[39px] font-bold text-[#262626]"}
         />
-       <div className="-mx-2">
+       <div className="-mx-4">
          <Slider {...settings} className="">
-          <div className="px-2">
-            <Product productTitle={"Basic Crew Neck Tee"} productImg={ProductOne} bdgText={"New"} productPrice={"$50"} />
+          {
+            allData.map((item)=>(
+
+              <div className="px-4">
+            
+              <Product productTitle={item.title} productImg={item.thumbnail} bdgText={"New"} productPrice={` $${item.price}`} />
+            
           </div>
-          <div className="px-2">
-            <Product productTitle={"Basic Crew Neck Tee"} productImg={ProductTwo} bdgText={"20%"} productPrice={"$30"} />
-          </div>
-          <div className="px-2">
-            <Product productTitle={"Basic Crew Neck Tee"} productImg={ProductThree} bdgText={"New"} productPrice={"$60"} />
-          </div>
-          <div className="px-2">
-            <Product productTitle={"Basic Crew Neck Tee"} productImg={ProductThree} bdgText={"30%"} productPrice={"$40"} />
-          </div>
-          <div className="px-2">
-            <Product productTitle={"Basic Crew Neck Tee"} productImg={ProductThree} bdgText={"30%"}  productPrice={"$20"}/>
-          </div>
-          <div className="px-2">
-            <Product productTitle={"Basic Crew Neck Tee"} productImg={ProductThree} bdgText={"30%"}  productPrice={"$50"}/>
-          </div>
+                
+              ))
+            
+}
+          
+         
+          
+          
         </Slider>
        </div>
       </Container>
