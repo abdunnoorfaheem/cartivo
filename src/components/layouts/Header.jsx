@@ -8,13 +8,18 @@ import Button from "../Button";
 import { FaSearch, FaUser, FaCaretDown, FaShoppingCart } from "react-icons/fa";
 import { FaBarsStaggered } from "react-icons/fa6";
 import Heading from "../Heading";
-import {useState} from "react";
+import { useState } from "react";
 
 const Header = () => {
   let [viewCategory, setViewCategory] = useState(false);
+  let [viewUser, setViewUser] = useState(false);
 
   function handleCategory() {
     setViewCategory(!viewCategory);
+  }
+
+  function handleUser() {
+    setViewUser(!viewUser);
   }
 
   return (
@@ -58,27 +63,15 @@ const Header = () => {
           <Container>
             <Flex className={"justify-between"}>
               <div className="flex items-center gap-x-2 text-[14px]">
-                <FaBarsStaggered  onClick={handleCategory}/>
-                
-                  <Heading
-                    
-                    text={"Shop by Category"}
-                    tagName={"h4"}
-                    className={"text-[#262626]"}
-                  />
-                { viewCategory && ( <div className=" bg-black text-white">
-                <ul>
-                  <li className="border-b-2">beauty</li>
-                  <li className="border-b-2">beauty</li>
-                  <li className="border-b-2">beauty</li>
-                  <li className="border-b-2">beauty</li>
-                  <li className="border-b-2">beauty</li>
-                </ul>
+                <FaBarsStaggered onClick={handleCategory} />
+
+                <Heading
+                  text={"Shop by Category"}
+                  tagName={"h4"}
+                  className={"text-[#262626]"}
+                />
               </div>
-                )}
-              
-              </div>
-                
+
               <div className="relative">
                 <input
                   type="text"
@@ -88,13 +81,32 @@ const Header = () => {
                 <FaSearch className="absolute right-3 top-1/2 -translate-1/2" />
               </div>
               <div className="flex items-center gap-x-3">
-                <div className="flex">
+                <div className="flex" onClick={handleUser}>
                   <FaUser />
                   <FaCaretDown />
                 </div>
                 <FaShoppingCart />
               </div>
             </Flex>
+            {
+              viewUser && <div className="">
+                <ul className="absolute right-80 font-semibold bg-black text-white px-5 py-2">
+                  <li><Link to={"/signup"}>Sign Up</Link></li>
+                  <li><Link>Log in</Link></li>
+                </ul>
+              </div>
+            }
+            {viewCategory && (
+              <div className=" bg-black text-white w-[300px] absolute">
+                <ul>
+                  <li className="border-b-2">beauty</li>
+                  <li className="border-b-2">beauty</li>
+                  <li className="border-b-2">beauty</li>
+                  <li className="border-b-2">beauty</li>
+                  <li className="border-b-2">beauty</li>
+                </ul>
+              </div>
+            )}
           </Container>
         </div>
       </div>
