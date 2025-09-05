@@ -1,11 +1,13 @@
 import React from "react";
 import Container from "../Container";
+import CommonPages from "../CommonPages";
 
 const About = () => {
   return (
     <>
       <Container>
-        <h1>about</h1>
+        <CommonPages title={"About"} description={"Home > About"}/>
+       
       </Container>
     </>
   );

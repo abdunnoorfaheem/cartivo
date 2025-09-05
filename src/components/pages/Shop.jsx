@@ -4,6 +4,7 @@ import {useState} from "react";
 import axios from "axios";
 import Flex from "../Flex";
 
+
 const Shop = () => {
   let [allData,setAllData]=useState([]);
     
@@ -19,6 +20,7 @@ const Shop = () => {
     <>
       <div className="py-[50px]">
         <Container>
+          
         <Flex className={"flex-wrap gap-x-2 gap-y-4"}>
           {allData.map((item)=>(
          <div className="w-[100%] lg:w-[32%] px-[20px] py-[10px] m-auto shadow-2xl">

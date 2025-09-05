@@ -1,11 +1,12 @@
 import React from 'react'
 import Container from '../Container'
+import CommonPages from '../CommonPages'
 
 const Contact = () => {
   return (
     <div>
       <Container>
-        <h1>Contact</h1>
+        <CommonPages title={"Contacts"} description={"Home  >  Contacts"}/>
       </Container>
     </div>
   )
