@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Paragraph = ({children}) => {
+const Paragraph = ({children,className}) => {
   return (
     <>
-      <p>
+      <p className={`${className}`}>
         {children}
       </p>
     </>
