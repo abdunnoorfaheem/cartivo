@@ -84,7 +84,7 @@ const Footer = () => {
               <FaInstagram/>
             </div>
             <div className="">
-              <Heading text={"2020 Orebi Minimal eCommerce Figma Template by Adveits"} tagName={"p"} className={"text-[#6D6D6D] text-[14px]"}/>
+              <Heading text={"2025 Orebi Minimal eCommerce Figma Template by Adveits"} tagName={"p"} className={"text-[#6D6D6D] text-[14px]"}/>
             </div>
           </Flex>
         </div>

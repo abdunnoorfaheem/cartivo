@@ -178,7 +178,7 @@ const SignUp = () => {
                 Password
               </label>
               <input
-                type="text"
+                type="password"
                 placeholder="Password"
                 className="border-b-2 border-[#F0F0F0] w-[500px] py-3 outline-0"
               />
@@ -188,7 +188,7 @@ const SignUp = () => {
                 Repeat Password
               </label>
               <input
-                type="text"
+                type="password"
                 placeholder="Repeat Password"
                 className="border-b-2 border-[#F0F0F0] w-[500px] py-3 outline-0"
               />

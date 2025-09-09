@@ -32,7 +32,7 @@ const Bestsellers = () => {
           {
             allData.slice(0,8).map((item)=>(
 
-                <div className="w-[48%] md:w-[32%] lg:w-[24%]">
+                <div className="w-[48%] md:w-[32%] lg:w-[24%]" key={item.id}>
             <Product productTitle={item.title} productImg={item.thumbnail} bdgText={"15%"}  productPrice={`$${item.price}`} />
           </div>
             ))

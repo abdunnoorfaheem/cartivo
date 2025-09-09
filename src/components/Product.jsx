@@ -6,9 +6,22 @@ import Flex from "./Flex";
 import Heading from "./Heading";
 import { FaHeart,FaShoppingCart } from "react-icons/fa";
 import { TbRefresh } from "react-icons/tb";
+import { useDispatch } from "react-redux";
+import { addtocart } from "../slices/addToCartSlice";
 
 
 const Product = ({ productImg, bdgText,productTitle,productPrice }) => {
+  let dispatch = useDispatch();
+  let handleAddToCart=()=>{
+    
+    dispatch(addtocart({
+      title:productTitle,
+      price:productPrice,
+      productImage:productImg,
+      quantity:1
+    }));
+    
+  }
   return (
     <>
       <div className="relative group">
@@ -23,7 +36,7 @@ const Product = ({ productImg, bdgText,productTitle,productPrice }) => {
             <h4>Compare</h4>
             <TbRefresh />
           </div>
-          <div className="flex items-center gap-x-3 justify-end px-[15px] py-[5px]">
+          <div className="flex items-center gap-x-3 justify-end px-[15px] py-[5px]" onClick={handleAddToCart}>
             <h4>Add to Cart</h4>
             <FaShoppingCart />
           </div>

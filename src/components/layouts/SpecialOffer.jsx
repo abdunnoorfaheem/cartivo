@@ -31,7 +31,7 @@ const SpecialOffer = () => {
             {
               allData.map((item)=>(
                   
-                <div className="w-[48%] md:w-[32%] lg:w-[24%]">
+                <div className="w-[48%] md:w-[32%] lg:w-[24%]" key={item.id}>
               <Product
                 productTitle={item.title}
                 productImg={item.thumbnail}
