@@ -28,7 +28,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="" onClick={() => setShowCart(!showCart)}>
+      <div className="" onClick={() => showCart && setShowCart(false)}>
         <Container>
           <Flex className={"justify-between py-[30px]"}>
             <div className="w-[40%]">
@@ -94,7 +94,7 @@ const Header = () => {
             </Flex>
             {showCart && (
               <div
-                className="h-screen w-[700px] bg-[#ced0d1] absolute right-0 top-0 "
+                className="h-screen w-[700px] bg-[#ced0d1] absolute right-0 top-0 z-100"
                 onClick={() => setShowCart(!showCart)}
               >
                 <ImCross className="text-[40px]" />
@@ -107,7 +107,7 @@ const Header = () => {
                     <li>Total</li>
                   </div>
                   {data.map((item) => (
-                    <div className="flex justify-between px-7 py-4 bg-amber-50 border-b-1 border-[#c3c9c9] ">
+                    <div className="flex justify-between px-7 py-4 bg-white border-b-1 border-[#c3c9c9] ">
                       <li>
                         <Image imgSrc={item.productImage} className={"w-[60px]"}/>
                         

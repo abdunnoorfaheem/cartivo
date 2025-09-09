@@ -8,7 +8,9 @@ import NewArrival from "../layouts/NewArrival";
 import Bestsellers from "../layouts/Bestsellers";
 import SpecialOffer from "../layouts/SpecialOffer";
 
+
 const Home = () => {
+  
   return (
     <>
       <Banner />
