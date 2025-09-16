@@ -4,24 +4,25 @@ import Image from "./Image";
 import Badge from "./Badge";
 import Flex from "./Flex";
 import Heading from "./Heading";
-import { FaHeart,FaShoppingCart } from "react-icons/fa";
+import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import { TbRefresh } from "react-icons/tb";
 import { useDispatch } from "react-redux";
 import { addtocart } from "../slices/addToCartSlice";
+import { toast } from "react-toastify";
 
-
-const Product = ({ productImg, bdgText,productTitle,productPrice }) => {
+const Product = ({ productImg, bdgText, productTitle, productPrice }) => {
   let dispatch = useDispatch();
-  let handleAddToCart=()=>{
-    
-    dispatch(addtocart({
-      title:productTitle,
-      price:productPrice,
-      productImage:productImg,
-      quantity:1
-    }));
-    
-  }
+  let handleAddToCart = () => {
+    dispatch(
+      addtocart({
+        title: productTitle,
+        price: productPrice,
+        productImage: productImg,
+        quantity: 1,
+      })
+    );
+    toast.success("Product Added Successfully")
+  };
   return (
     <>
       <div className="relative group">
@@ -30,13 +31,17 @@ const Product = ({ productImg, bdgText,productTitle,productPrice }) => {
         <div className="bg-white opacity-0 group-hover:opacity-100 absolute left-0 bottom-12 w-full duration-700">
           <div className="flex items-center gap-x-3 justify-end px-[15px] py-[5px]">
             <h4>Add to Wish List</h4>
+           
             <FaHeart />
           </div>
           <div className="flex items-center gap-x-3 justify-end px-[15px] py-[5px] ">
             <h4>Compare</h4>
             <TbRefresh />
           </div>
-          <div className="flex items-center gap-x-3 justify-end px-[15px] py-[5px]" onClick={handleAddToCart}>
+          <div
+            className="flex items-center gap-x-3 justify-end px-[15px] py-[5px]"
+            onClick={handleAddToCart}
+          >
             <h4>Add to Cart</h4>
             <FaShoppingCart />
           </div>
@@ -55,7 +60,6 @@ const Product = ({ productImg, bdgText,productTitle,productPrice }) => {
             />
           </Flex>
         </div>
-        
       </div>
     </>
   );

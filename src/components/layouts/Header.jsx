@@ -13,16 +13,14 @@ import { ImCross } from "react-icons/im";
 import { useSelector } from "react-redux";
 import { FaBars } from "react-icons/fa";
 
-
 const Header = () => {
-  let cartAddNumber=useSelector(state=> state.addtocart.value);
-  
-  
-  let [menu,setMenu]=useState(false);
+  let cartAddNumber = useSelector((state) => state.addtocart.value);
 
-  let handleMenu=()=>{
+  let [menu, setMenu] = useState(false);
+
+  let handleMenu = () => {
     setMenu(!menu);
-  }
+  };
   let [viewCategory, setViewCategory] = useState(false);
   let [viewUser, setViewUser] = useState(false);
 
@@ -35,6 +33,9 @@ const Header = () => {
   }
   let [showCart, setShowCart] = useState(false);
   let data = useSelector((state) => state.addtocart.value);
+  let subTotal=data.reduce((acc,item)=>{
+   return acc+item.price+item.quantity;
+  },0)
 
   return (
     <>
@@ -72,32 +73,34 @@ const Header = () => {
               </ul>
             </div>
             <div onClick={handleMenu} className="w-[10%] md:hidden">
-             {menu ? <ImCross/> : <FaBars/>}
+              {menu ? <ImCross /> : <FaBars />}
             </div>
           </Flex>
-          {menu &&  <ul className="md:hidden  gap-x-12 gap-y-12 text-center text-[#767676] duration-700">
-                <Link to={"/"}>
-                  <li className="hover:text-[#262626] hover:font-bold duration-500">
-                    Home
-                  </li>
-                </Link>
-                <Link to={"/shop"}>
-                  <li className="hover:text-[#262626] hover:font-bold duration-500">
-                    Shop
-                  </li>
-                </Link>
-                <Link to={"/about"}>
-                  <li className="hover:text-[#262626] hover:font-bold duration-500">
-                    About
-                  </li>
-                </Link>
+          {menu && (
+            <ul className="md:hidden  gap-x-12 gap-y-12 text-center text-[#767676] duration-700">
+              <Link to={"/"}>
                 <li className="hover:text-[#262626] hover:font-bold duration-500">
-                  <Link to={"/contact"}>Contacts</Link>
+                  Home
                 </li>
+              </Link>
+              <Link to={"/shop"}>
                 <li className="hover:text-[#262626] hover:font-bold duration-500">
-                  <Link to={"/journal"}>Journal</Link>
+                  Shop
                 </li>
-              </ul>}
+              </Link>
+              <Link to={"/about"}>
+                <li className="hover:text-[#262626] hover:font-bold duration-500">
+                  About
+                </li>
+              </Link>
+              <li className="hover:text-[#262626] hover:font-bold duration-500">
+                <Link to={"/contact"}>Contacts</Link>
+              </li>
+              <li className="hover:text-[#262626] hover:font-bold duration-500">
+                <Link to={"/journal"}>Journal</Link>
+              </li>
+            </ul>
+          )}
         </Container>
         <div className="bg-[#F5F5F3] py-[30px]">
           <Container>
@@ -125,15 +128,20 @@ const Header = () => {
                   <FaUser />
                   <FaCaretDown />
                 </div>
-               <div className="relative">
-                 <FaShoppingCart onClick={() => setShowCart(!showCart)} />
-                  <h3 className="absolute bottom-2 left-2 bg-red-800 text-white h-4 w-4 flex justify-center items-center rounded-full font-bold text-[12px]">{cartAddNumber.length}</h3>
-               </div>
+                <div
+                  className="relative"
+                  onClick={() => setShowCart(!showCart)}
+                >
+                  <FaShoppingCart />
+                  <h3 className="absolute bottom-2 left-2 bg-red-800 text-white h-4 w-4 flex justify-center items-center rounded-full font-bold text-[12px]">
+                    {cartAddNumber?.length}
+                  </h3>
+                </div>
               </div>
             </Flex>
             {showCart && (
               <div
-                className="h-screen w-[700px] bg-[#ced0d1] absolute right-0 top-0 z-100"
+                className="h-screen w-[700px] bg-[#ced0d1] absolute right-0 top-0 z-50"
                 onClick={() => setShowCart(!showCart)}
               >
                 <ImCross className="text-[40px]" />
@@ -144,27 +152,35 @@ const Header = () => {
                     <li className="w-[19%] text-center">Price</li>
                     <li className="w-[19%] text-center">Quantity</li>
                     <li className="w-[19%] text-center">Total</li>
-                   
                   </div>
                   {data.map((item) => (
                     <div className="flex justify-between px-7 py-4 bg-white border-b-1 border-[#c3c9c9] ">
                       <li className="w-[19%] m-auto text-center">
-                        <Image imgSrc={item.productImage} className={"w-[60px]"}/>
-                        
+                        <Image
+                          imgSrc={item.productImage}
+                          className={"w-[60px]"}
+                        />
                       </li>
-                      <li className="w-[19%] m-auto text-center">{item.title}</li>
-                      <li className="w-[19%] m-auto text-center">{item.price}</li>
-                      <li className="w-[19%] m-auto text-center">{item.quantity}</li>
-                      <li className="w-[19%] m-auto text-center">{`$${item.quantity*item.price}`}</li>
+                      <li className="w-[19%] m-auto text-center">
+                        {item.title}
+                      </li>
+                      <li className="w-[19%] m-auto text-center">
+                        {item.price}
+                      </li>
+                      <li className="flex gap-x-4 w-[19%] m-auto text-center pl-7 items-center">
+                        <li className="text-2xl border-1 px-2">+</li>
+                        <li>{item.quantity}</li>
+                        <li className="text-2xl border-1 px-2">-</li>
+                      </li>
+                      <li className="w-[19%] m-auto text-center">{`$${
+                        item.quantity * item.price
+                      }`}</li>
                       {/* <li className="w-[19%] m-auto text-center">{`$${item.quantity*item.price}`}</li> */}
-                      
-                      
-                      
-                     
                     </div>
                   ))}
-                  <div className=" bg-[#F5F7F7] py-3 px-10 font-bold">
+                  <div className=" bg-[#F5F7F7] py-3 px-20 font-bold flex  justify-between">
                     <li>SubTotal</li>
+                    <li>{`$${subTotal.toFixed(2)}`}</li>
                   </div>
                 </ul>
               </div>
