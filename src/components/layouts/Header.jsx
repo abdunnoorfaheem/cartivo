@@ -150,7 +150,7 @@ const Header = () => {
               </div>
             </Flex>
             {showCart && (
-              <div className="h-screen w-[700px] bg-[#ced0d1] absolute right-0 top-0 z-50">
+              <div className="h-screen w-[700px] bg-[#ced0d1]  right-0 top-0 z-50 fixed">
                 <ImCross
                   className="text-[40px]"
                   onClick={() => setShowCart(!showCart)}
@@ -197,7 +197,7 @@ const Header = () => {
                           +
                         </li>
                       </li>
-                      <li className="w-[19%] m-auto text-center">{`$${(
+                      <li className="w-[19%] m-auto text-center pl-12">{`$${(
                         item.quantity * item.price
                       ).toFixed(2)}`}</li>
                     </div>
@@ -205,6 +205,10 @@ const Header = () => {
                   <div className=" bg-[#F5F7F7] py-3 px-20 font-bold flex  justify-between">
                     <li>SubTotal</li>
                     <li>{`$${subTotal.toFixed(2)}`}</li>
+                    
+                  </div>
+                  <div className="">
+                    <Button className={"bg-gray-600 text-white w-full font-bold text-3xl"}>Buy Now</Button>
                   </div>
                 </ul>
               </div>

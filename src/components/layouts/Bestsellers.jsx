@@ -12,7 +12,7 @@ const Bestsellers = () => {
   useEffect(() => {
     
     async function viewData(){
-      let data =await axios.get('https://dummyjson.com/product');
+      let data =await axios.get('https://dummyjson.com/products');
       setAllData(data.data.products);
       
     }
