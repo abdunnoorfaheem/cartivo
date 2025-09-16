@@ -15,6 +15,9 @@ import { FaBars } from "react-icons/fa";
 
 
 const Header = () => {
+  let cartAddNumber=useSelector(state=> state.addtocart.value);
+  
+  
   let [menu,setMenu]=useState(false);
 
   let handleMenu=()=>{
@@ -122,7 +125,10 @@ const Header = () => {
                   <FaUser />
                   <FaCaretDown />
                 </div>
-                <FaShoppingCart onClick={() => setShowCart(!showCart)} />
+               <div className="relative">
+                 <FaShoppingCart onClick={() => setShowCart(!showCart)} />
+                  <h3 className="absolute bottom-2 left-2 bg-red-800 text-white h-4 w-4 flex justify-center items-center rounded-full font-bold text-[12px]">{cartAddNumber.length}</h3>
+               </div>
               </div>
             </Flex>
             {showCart && (
@@ -133,26 +139,33 @@ const Header = () => {
                 <ImCross className="text-[40px]" />
                 <ul className="py-5">
                   <div className="flex justify-between bg-[#F5F7F7] py-3 px-2 font-bold">
-                    <li>Product</li>
-                    <li>Product Name</li>
-                    <li>Price</li>
-                    <li>Quantity</li>
-                    <li>Total</li>
+                    <li className="w-[19%] text-center">Product</li>
+                    <li className="w-[19%] text-center">Product Name</li>
+                    <li className="w-[19%] text-center">Price</li>
+                    <li className="w-[19%] text-center">Quantity</li>
+                    <li className="w-[19%] text-center">Total</li>
+                   
                   </div>
                   {data.map((item) => (
                     <div className="flex justify-between px-7 py-4 bg-white border-b-1 border-[#c3c9c9] ">
-                      <li>
+                      <li className="w-[19%] m-auto text-center">
                         <Image imgSrc={item.productImage} className={"w-[60px]"}/>
                         
                       </li>
-                      <li>{item.title}</li>
-                      <li>{item.price}</li>
-                      <li>{item.quantity}</li>
-                      <li>{item.quantity*item.price}</li>
+                      <li className="w-[19%] m-auto text-center">{item.title}</li>
+                      <li className="w-[19%] m-auto text-center">{item.price}</li>
+                      <li className="w-[19%] m-auto text-center">{item.quantity}</li>
+                      <li className="w-[19%] m-auto text-center">{`$${item.quantity*item.price}`}</li>
+                      {/* <li className="w-[19%] m-auto text-center">{`$${item.quantity*item.price}`}</li> */}
+                      
+                      
                       
                      
                     </div>
                   ))}
+                  <div className=" bg-[#F5F7F7] py-3 px-10 font-bold">
+                    <li>SubTotal</li>
+                  </div>
                 </ul>
               </div>
             )}

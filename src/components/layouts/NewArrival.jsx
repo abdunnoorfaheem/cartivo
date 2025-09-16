@@ -89,7 +89,7 @@ const NewArrival = () => {
 
               <div className="px-4">
             
-              <Product productTitle={item.title} productImg={item.thumbnail} bdgText={"New"} productPrice={` $${item.price}`} />
+              <Product productTitle={item.title} productImg={item.thumbnail} bdgText={"New"} productPrice={item.price} />
             
           </div>
                 
