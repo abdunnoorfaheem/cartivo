@@ -11,8 +11,15 @@ import Heading from "../Heading";
 import { useState } from "react";
 import { ImCross } from "react-icons/im";
 import { useSelector } from "react-redux";
+import { FaBars } from "react-icons/fa";
+
 
 const Header = () => {
+  let [menu,setMenu]=useState(false);
+
+  let handleMenu=()=>{
+    setMenu(!menu);
+  }
   let [viewCategory, setViewCategory] = useState(false);
   let [viewUser, setViewUser] = useState(false);
 
@@ -29,17 +36,17 @@ const Header = () => {
   return (
     <>
       <div className="" onClick={() => showCart && setShowCart(false)}>
-        <Container>
-          <Flex className={"justify-between py-[30px]"}>
-            <div className="w-[40%]">
+        <Container className={""}>
+          <Flex className={"justify-between py-[30px] px-[20px] md:px-0"}>
+            <div className="w-[20%]">
               <Link to={"/"}>
                 <Image imgSrc={Logo} />
               </Link>
             </div>
-            <div className="w-[60%]">
-              <ul className="flex gap-x-12 text-[#767676]">
+            <div className="w-[70%]">
+              <ul className="hidden md:flex gap-x-12 text-[#767676] ">
                 <Link to={"/"}>
-                  <li className="hover:text-[#262626] hover:font-bold duration-500">
+                  <li className="hover:text-[#262626] hover:font-bold duration-500 ">
                     Home
                   </li>
                 </Link>
@@ -61,7 +68,33 @@ const Header = () => {
                 </li>
               </ul>
             </div>
+            <div onClick={handleMenu} className="w-[10%] md:hidden">
+             {menu ? <ImCross/> : <FaBars/>}
+            </div>
           </Flex>
+          {menu &&  <ul className="md:hidden  gap-x-12 gap-y-12 text-center text-[#767676] duration-700">
+                <Link to={"/"}>
+                  <li className="hover:text-[#262626] hover:font-bold duration-500">
+                    Home
+                  </li>
+                </Link>
+                <Link to={"/shop"}>
+                  <li className="hover:text-[#262626] hover:font-bold duration-500">
+                    Shop
+                  </li>
+                </Link>
+                <Link to={"/about"}>
+                  <li className="hover:text-[#262626] hover:font-bold duration-500">
+                    About
+                  </li>
+                </Link>
+                <li className="hover:text-[#262626] hover:font-bold duration-500">
+                  <Link to={"/contact"}>Contacts</Link>
+                </li>
+                <li className="hover:text-[#262626] hover:font-bold duration-500">
+                  <Link to={"/journal"}>Journal</Link>
+                </li>
+              </ul>}
         </Container>
         <div className="bg-[#F5F5F3] py-[30px]">
           <Container>
