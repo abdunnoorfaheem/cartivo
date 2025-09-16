@@ -7,7 +7,7 @@ export const addToCartSlice = createSlice({
   },
   reducers: {
     addtocart: (state, action) => {
-      // state.value.push(action.payload);
+     
 
       let allData = state.value.find(
         (item) => item.title === action.payload.title

@@ -12,7 +12,7 @@ import { useState } from "react";
 import { ImCross } from "react-icons/im";
 import { useDispatch, useSelector } from "react-redux";
 import { FaBars } from "react-icons/fa";
-import { increment,decrement } from "/src/slices/addToCartSlice";
+import { increment, decrement } from "/src/slices/addToCartSlice";
 
 const Header = () => {
   let dispatch = useDispatch();
@@ -130,6 +130,7 @@ const Header = () => {
                   placeholder="Search Products"
                   className="bg-white py-[16px] pl-[21px] w-[600px] outline-0 placeholder:text-[#C4C4C4]"
                 />
+
                 <FaSearch className="absolute right-3 top-1/2 -translate-1/2" />
               </div>
               <div className="flex items-center gap-x-3 relative">
@@ -177,17 +178,28 @@ const Header = () => {
                         {item.price}
                       </li>
                       <li className="flex gap-x-4 w-[19%] m-auto text-center pl-7 items-center">
-                        <li className="text-2xl border-1 px-2" onClick={()=>{handleDecrement(item)}}>-</li>
+                        <li
+                          className="text-2xl border-1 px-2"
+                          onClick={() => {
+                            handleDecrement(item);
+                          }}
+                        >
+                          -
+                        </li>
 
                         <li>{item.quantity}</li>
-                        <li className="text-2xl border-1 px-2"
-                          onClick={()=>{handleIncrement(item)}}>
+                        <li
+                          className="text-2xl border-1 px-2"
+                          onClick={() => {
+                            handleIncrement(item);
+                          }}
+                        >
                           +
                         </li>
                       </li>
-                      <li className="w-[19%] m-auto text-center">{`$${
-                        (item.quantity * item.price).toFixed(2)
-                      }`}</li>
+                      <li className="w-[19%] m-auto text-center">{`$${(
+                        item.quantity * item.price
+                      ).toFixed(2)}`}</li>
                     </div>
                   ))}
                   <div className=" bg-[#F5F7F7] py-3 px-20 font-bold flex  justify-between">
