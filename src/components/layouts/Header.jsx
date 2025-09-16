@@ -10,10 +10,19 @@ import { FaBarsStaggered } from "react-icons/fa6";
 import Heading from "../Heading";
 import { useState } from "react";
 import { ImCross } from "react-icons/im";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { FaBars } from "react-icons/fa";
+import { increment,decrement } from "/src/slices/addToCartSlice";
 
 const Header = () => {
+  let dispatch = useDispatch();
+  let handleIncrement = (item) => {
+    dispatch(increment(item));
+  };
+  let handleDecrement = (item) => {
+    dispatch(decrement(item));
+  };
+
   let cartAddNumber = useSelector((state) => state.addtocart.value);
 
   let [menu, setMenu] = useState(false);
@@ -33,13 +42,13 @@ const Header = () => {
   }
   let [showCart, setShowCart] = useState(false);
   let data = useSelector((state) => state.addtocart.value);
-  let subTotal=data.reduce((acc,item)=>{
-   return acc+item.price+item.quantity;
-  },0)
+  let subTotal = data.reduce((acc, item) => {
+    return acc + item.price * item.quantity;
+  }, 0);
 
   return (
     <>
-      <div className="" onClick={() => showCart && setShowCart(false)}>
+      <div className="">
         <Container className={""}>
           <Flex className={"justify-between py-[30px] px-[20px] md:px-0"}>
             <div className="w-[20%]">
@@ -140,11 +149,11 @@ const Header = () => {
               </div>
             </Flex>
             {showCart && (
-              <div
-                className="h-screen w-[700px] bg-[#ced0d1] absolute right-0 top-0 z-50"
-                onClick={() => setShowCart(!showCart)}
-              >
-                <ImCross className="text-[40px]" />
+              <div className="h-screen w-[700px] bg-[#ced0d1] absolute right-0 top-0 z-50">
+                <ImCross
+                  className="text-[40px]"
+                  onClick={() => setShowCart(!showCart)}
+                />
                 <ul className="py-5">
                   <div className="flex justify-between bg-[#F5F7F7] py-3 px-2 font-bold">
                     <li className="w-[19%] text-center">Product</li>
@@ -168,14 +177,17 @@ const Header = () => {
                         {item.price}
                       </li>
                       <li className="flex gap-x-4 w-[19%] m-auto text-center pl-7 items-center">
-                        <li className="text-2xl border-1 px-2">+</li>
+                        <li className="text-2xl border-1 px-2" onClick={()=>{handleDecrement(item)}}>-</li>
+
                         <li>{item.quantity}</li>
-                        <li className="text-2xl border-1 px-2">-</li>
+                        <li className="text-2xl border-1 px-2"
+                          onClick={()=>{handleIncrement(item)}}>
+                          +
+                        </li>
                       </li>
                       <li className="w-[19%] m-auto text-center">{`$${
-                        item.quantity * item.price
+                        (item.quantity * item.price).toFixed(2)
                       }`}</li>
-                      {/* <li className="w-[19%] m-auto text-center">{`$${item.quantity*item.price}`}</li> */}
                     </div>
                   ))}
                   <div className=" bg-[#F5F7F7] py-3 px-20 font-bold flex  justify-between">
