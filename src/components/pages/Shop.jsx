@@ -9,7 +9,7 @@ const Shop = () => {
   let [allData,setAllData]=useState([]);
     
    async function allShowData(){
-     let data = await axios.get("https://dummyjson.com/products");
+     let data = await axios.get("https://dummyjson.com/products?&limit=0");
     //  https://dummyjson.com/products?&limit=0
      setAllData(data.data.products);
       
