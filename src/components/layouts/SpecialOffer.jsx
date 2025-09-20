@@ -36,7 +36,7 @@ const SpecialOffer = () => {
                 productTitle={item.title}
                 productImg={item.thumbnail}
                 bdgText={"15%"}
-                productPrice={`$${item.price}`}
+                productPrice={item.price}
               />
             </div>
                  

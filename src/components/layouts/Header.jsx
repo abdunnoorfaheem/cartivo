@@ -8,11 +8,12 @@ import Button from "../Button";
 import { FaSearch, FaUser, FaCaretDown, FaShoppingCart } from "react-icons/fa";
 import { FaBarsStaggered } from "react-icons/fa6";
 import Heading from "../Heading";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ImCross } from "react-icons/im";
 import { useDispatch, useSelector } from "react-redux";
 import { FaBars } from "react-icons/fa";
 import { increment, decrement } from "/src/slices/addToCartSlice";
+import axios from "axios";
 
 const Header = () => {
   let dispatch = useDispatch();
@@ -45,6 +46,30 @@ const Header = () => {
   let subTotal = data.reduce((acc, item) => {
     return acc + item.price * item.quantity;
   }, 0);
+
+  let [apiData, setApiData] = useState([]);
+
+  useEffect(() => {
+    async function viewApiData() {
+      let dataApi = await axios.get("https://dummyjson.com/products?&limit=0");
+      setApiData(dataApi.data.products);
+    }
+    viewApiData();
+  }, []);
+
+  let [input, setInput] = useState("");
+  let [searchProduct, setSearchProduct] = useState([]);
+//  console.log(input);
+ 
+  let handleInput = (e) => {
+    setInput(e.target.value);
+    if (e.target.value !== "") {
+      let searchProduct = apiData.filter((item) => item.title.toLowerCase().includes((e.target.value).toLowerCase()));
+      setSearchProduct(searchProduct);
+    }else{
+      setSearchProduct([]);
+    }
+  };
 
   return (
     <>
@@ -127,10 +152,20 @@ const Header = () => {
               <div className="relative">
                 <input
                   type="text"
+                  onChange={handleInput}
                   placeholder="Search Products"
                   className="bg-white py-[16px] pl-[21px] w-[600px] outline-0 placeholder:text-[#C4C4C4]"
                 />
-
+                {
+                  searchProduct.length > 0 && <div className="absolute h-[300px] overflow-y-scroll ">
+                  {searchProduct.map((item) => (
+                    <div className="px-4 py-2 hover:bg-gray-500 cursor-pointer flex items-center justify-between shadow-2xl w-[585px] hover:text-white hover:font-semibold " key={item.id}>
+                      <Image imgSrc={item.thumbnail} className={"w-[70px]"}/>
+                      <h4>{item.title}</h4>
+                    </div>
+                  ))}
+                </div>
+                }
                 <FaSearch className="absolute right-3 top-1/2 -translate-1/2" />
               </div>
               <div className="flex items-center gap-x-3 relative">
@@ -205,10 +240,15 @@ const Header = () => {
                   <div className=" bg-[#F5F7F7] py-3 px-20 font-bold flex  justify-between">
                     <li>SubTotal</li>
                     <li>{`$${subTotal.toFixed(2)}`}</li>
-                    
                   </div>
                   <div className="">
-                    <Button className={"bg-gray-600 text-white w-full font-bold text-3xl"}>Buy Now</Button>
+                    <Button
+                      className={
+                        "bg-gray-600 text-white w-full font-bold text-3xl"
+                      }
+                    >
+                      Buy Now
+                    </Button>
                   </div>
                 </ul>
               </div>
