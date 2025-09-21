@@ -138,7 +138,7 @@ const Header = () => {
         </Container>
         <div className="bg-[#F5F5F3] py-[30px]">
           <Container>
-            <Flex className={"justify-between"}>
+            <div className="md:flex md:justify-between md:items-center p-5 md:p-0">
               <div className="flex items-center gap-x-2 text-[14px]">
                 <FaBarsStaggered onClick={handleCategory} />
 
@@ -183,7 +183,7 @@ const Header = () => {
                   </h3>
                 </div>
               </div>
-            </Flex>
+            </div>
             {showCart && (
               <div className="h-screen w-[700px] bg-[#ced0d1]  right-0 top-0 z-50 fixed">
                 <ImCross

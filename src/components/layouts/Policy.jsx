@@ -10,7 +10,7 @@ const Policy = () => {
     <>
       <div className="py-[24px]">
         <Container>
-            <Flex className={"justify-between"}>
+            <div className="md:flex items-center justify-between ">
                 <div className="flex items-center text-[16px] gap-x-2">
                   <PiNumberTwoBold />
                   <Heading text={"Two years warranty"} tagName={"h4"} className={"text-[#6D6D6D]"}/>
@@ -31,7 +31,7 @@ const Policy = () => {
                 </div>
                 </div>
                 </div>
-            </Flex>
+            </div>
         </Container>
       </div>
     </>

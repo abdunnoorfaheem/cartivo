@@ -45,8 +45,7 @@ const NewArrival = () => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1, 
-          infinite: true,
-          dots: true,
+          
         },
       },
       {
@@ -64,13 +63,7 @@ const NewArrival = () => {
           slidesToScroll: 1,
         },
       },
-      {
-        breakpoint: 300,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
+      
     ],
   };
 
@@ -80,14 +73,14 @@ const NewArrival = () => {
         <Heading
           text={"New Arrivals"}
           tagName={"h3"}
-          className={"text-[39px] font-bold text-[#262626]"}
+          className={"md:text-[39px] font-bold text-[#262626]"}
         />
        <div className="-mx-4">
          <Slider {...settings} className="">
           {
             allData.map((item)=>(
 
-              <div className="px-4">
+              <div className="px-4 min-w-[200px]">
             
               <Product productTitle={item.title} productImg={item.thumbnail} bdgText={"New"} productPrice={item.price} />
             

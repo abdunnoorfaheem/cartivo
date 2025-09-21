@@ -12,16 +12,16 @@ const Offer = () => {
     <>
       <div className="py-[50px]">
         <Container>
-            <Flex className={"justify-between"}>
-                <div className="w-[49%]">
+            <div className="md:flex items-center justify-between">
+                <div className="md:w-[49%]">
                     <Link to={"/shop"}><Image imgSrc={OfferOne}/></Link>
                     
                 </div>
-                <div className="w-[49%]">
+                <div className="md:w-[49%]">
                     <Link to={"/shop"}><Image imgSrc={OfferTwo}/></Link>
-                    <Link to={"/shop"}><Image imgSrc={OfferThree} className={"mt-[40px]"}/></Link>
+                    <Link to={"/shop"}><Image imgSrc={OfferThree} className={"md:mt-[40px] mt-5"}/></Link>
                 </div>
-            </Flex>
+            </div>
         </Container>
       </div>
     </>

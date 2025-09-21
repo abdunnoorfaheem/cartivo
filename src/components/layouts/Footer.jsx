@@ -14,7 +14,7 @@ const Footer = () => {
       <div className="bg-[#F5F5F3]">
         <Container>
         <div className="py-[30px]">
-          <Flex className={"justify-between"}>
+          <div className="md:flex items-center md:justify-between">
             <div className="">
               
               <Heading text={"MENU"} tagName={"h3"} className={"font-bold"}/>
@@ -74,10 +74,10 @@ const Footer = () => {
             <div className="">
               <Image imgSrc={Logo} className={"mb-[147px]"}/>
             </div>
-          </Flex>
+          </div>
         </div>
         <div className="py-[25px]">
-          <Flex className={"justify-between"}>
+          <div className="md:flex justify-between items-center">
             <div className="flex items-center gap-x-3">
               <FaFacebookF/>
               <FaLinkedinIn/>
@@ -86,7 +86,7 @@ const Footer = () => {
             <div className="">
               <Heading text={"2025 Orebi Minimal eCommerce Figma Template by Adveits"} tagName={"p"} className={"text-[#6D6D6D] text-[14px]"}/>
             </div>
-          </Flex>
+          </div>
         </div>
       </Container>
       </div>

@@ -24,14 +24,14 @@ const SpecialOffer = () => {
           <Heading
             text={"Special Offers"}
             tagName={"h3"}
-            className={"text-[39px] font-bold text-[#262626]"}
+            className={"md:text-[39px] font-bold text-[#262626]"}
           />
-          <div className="flex flex-wrap gap-4 justify-between">
+          <div className="md:flex flex-wrap gap-4 justify-between">
 
             {
               allData.map((item)=>(
                   
-                <div className="w-[48%] md:w-[32%] lg:w-[24%]" key={item.id}>
+                <div className="md:w-[48%]  lg:w-[24%] py-3 md:py-0" key={item.id}>
               <Product
                 productTitle={item.title}
                 productImg={item.thumbnail}
