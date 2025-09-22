@@ -28,7 +28,7 @@ const Product = ({ productImg, bdgText, productTitle, productPrice }) => {
     <div className="relative group  p-3 bg-white shadow-sm hover:shadow-md duration-700">
      
       <div className="relative w-full h-[250px] flex items-center justify-center">
-        <Badge className="absolute top-3 left-3 z-10 text-[10px] md:text-[16px]" badgeText={bdgText} />
+        <Badge className="absolute top-3 left-3 z-10 text-[8px] md:text-[14px]" badgeText={bdgText} />
         <img
           src={productImg}
           alt={productTitle}

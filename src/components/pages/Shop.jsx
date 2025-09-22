@@ -3,6 +3,7 @@ import Container from "../Container";
 import {useState} from "react";
 import axios from "axios";
 import Flex from "../Flex";
+import Product from "../Product";
 
 
 const Shop = () => {
@@ -56,17 +57,13 @@ const Shop = () => {
       <div className="py-[50px]">
         <Container>
           
-        <Flex className={"flex-wrap gap-x-2 gap-y-4"}>
+        <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-4">
           {perPageProducts.map((item)=>(
-         <div className="w-[100%] lg:w-[32%] px-[20px] py-[10px] m-auto shadow-2xl">
-          <div className="text-center"><img src={item.thumbnail} alt="" /></div>
-          <h1 className="text-2xl font-bold">{item.title}</h1>
-          <p className="text-[#000000] opacity-[.75]">{item.description}</p>
-          <h3 className="text-md font-bold">Price : {item.price}</h3>
-          
+         <div className="w-[32%]">
+          <Product productImg={item.thumbnail} bdgText={item.availabilityStatus} productTitle={item.title} productPrice={item.price}/>
          </div>
         ))}
-        </Flex>
+        </div>
         <ul className="flex gap-x-8 py-10 justify-center text-gray-500">
            <li className="p-3 border-2" onClick={handlePrevPage}>Prev</li>
           {
