@@ -11,10 +11,10 @@ const Footer = () => {
     <>
       <div className="bg-[#F5F5F3]">
         <Container>
-          {/* Top Section */}
+          
           <div className="py-[30px]">
             <div className="flex flex-col md:flex-row md:flex-wrap md:justify-between gap-8">
-              {/* Menu */}
+            
               <div className="flex-1">
                 <Heading text={"MENU"} tagName={"h3"} className={"font-bold"} />
                 <ul className="text-[#767676]">
@@ -42,7 +42,7 @@ const Footer = () => {
                 </ul>
               </div>
 
-              {/* Shop */}
+            
               <div className="flex-1">
                 <Heading text={"SHOP"} tagName={"h3"} className={"font-bold"} />
                 <ul className="text-[#767676]">
@@ -70,7 +70,7 @@ const Footer = () => {
                 </ul>
               </div>
 
-              {/* Help */}
+             
               <div className="flex-1">
                 <Heading text={"HELP"} tagName={"h3"} className={"font-bold"} />
                 <ul className="text-[#767676]">
@@ -98,7 +98,7 @@ const Footer = () => {
                 </ul>
               </div>
 
-              {/* Contact */}
+             
               <div className="flex-1">
                 <Heading
                   tagName={"h4"}
@@ -116,14 +116,14 @@ const Footer = () => {
                 />
               </div>
 
-              {/* Logo */}
+              
               <div className="flex-1 flex md:block justify-center">
                 <Image imgSrc={Logo} className={"mb-[30px] md:mb-[60px]"} />
               </div>
             </div>
           </div>
 
-          {/* Bottom Section */}
+         
           <div className="py-[25px] border-t border-gray-200">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <div className="flex items-center gap-x-3 text-lg">
