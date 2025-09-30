@@ -10,10 +10,13 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const SpecialOffer = () => {
-    useEffect(() => {
+  useEffect(() => {
     AOS.init({
       duration: 2000, // animation duration (ms)
       offset: 100, // scroll offset
+      easing: "ease-in-out", // Smooth effect
+      delay: 200, // Delay effect
+      mirror: true, // Scroll up করলেও animate হবে
       once: false, // একবার animate হবে
     });
   }, []);
@@ -36,24 +39,20 @@ const SpecialOffer = () => {
             className={"md:text-[39px] font-bold text-[#262626]"}
           />
           <div className="md:flex flex-wrap gap-4 justify-between">
-
-            {
-              allData.map((item)=>(
-                  
-                <div className="md:w-[48%]  lg:w-[24%] py-3 md:py-0" key={item.id} data-aos="fade-left">
-              <Product
-                productTitle={item.title}
-                productImg={item.thumbnail}
-                bdgText={"15%"}
-                productPrice={item.price}
-              />
-            </div>
-                 
-              ))
-            }
-           
-            
-           
+            {allData.map((item) => (
+              <div
+                className="md:w-[48%]  lg:w-[24%] py-3 md:py-0"
+                key={item.id}
+                data-aos="fade-left"
+              >
+                <Product
+                  productTitle={item.title}
+                  productImg={item.thumbnail}
+                  bdgText={"15%"}
+                  productPrice={item.price}
+                />
+              </div>
+            ))}
           </div>
         </Container>
       </div>
