@@ -1,11 +1,14 @@
 import React from "react";
 import Container from "../Container";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import axios from "axios";
 import Flex from "../Flex";
 import Product from "../Product";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Shop = () => {
+
   let [allData, setAllData] = useState([]);
 
   async function allShowData() {
@@ -13,6 +16,16 @@ const Shop = () => {
     setAllData(data.data.products);
   }
   allShowData();
+   useEffect(() => {
+      AOS.init({
+        duration: 1000, // animation duration (ms)
+        offset: 100, // scroll offset
+        easing: "ease-in-out", // Smooth effect
+        delay: 200, // Delay effect
+        mirror: true, // Scroll up করলেও animate হবে
+        once: false, // একবার animate হবে
+      });
+    }, []);
 
   let [currentPage, setCurrentPage] = useState(1);
   let [perPage, setPerPage] = useState(15);
@@ -48,13 +61,14 @@ const Shop = () => {
             {perPageProducts.map((item, i) => (
               <div
                 key={i}
-                className="w-full sm:w-[48%] lg:w-[32%]" 
+                className="w-full sm:w-[48%] lg:w-[32%]" data-aos="fade-right" 
               >
                 <Product
                   productImg={item.thumbnail}
                   bdgText={item.availabilityStatus}
                   productTitle={item.title}
                   productPrice={item.price}
+                  
                 />
               </div>
             ))}
